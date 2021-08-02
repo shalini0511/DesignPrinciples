@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DesignPrinciples.DesignPrinciple.Dependency_Inversion_Principle;
 using DesignPrinciples.DesignPrinciple.Interface_Segregation_Principle;
 using DesignPrinciples.DesignPrinciple.Liskov_Substitution_Principle;
 using DesignPrinciples.DesignPrinciple.Open_Closed_Principle;
@@ -17,6 +18,7 @@ namespace DesignPrinciples
             Console.WriteLine("2.Open Closed Principle");
             Console.WriteLine("3.Liskov Substitution Principle");
             Console.WriteLine("4.Interface segregation principle");
+            Console.WriteLine("5.Dependency Inversion Principle");
             Console.WriteLine("Enter the option");
             int num = Convert.ToInt32(Console.ReadLine());
             switch (num)
@@ -67,6 +69,12 @@ namespace DesignPrinciples
                     content1.PrintContent();
                     IPhotoCopyContent copyContent = new Cannon();
                     copyContent.PhotoCopyContent();
+                    break;
+                case 5:
+                    var employeeDetailsModified = new EmployeeDetailsModified(new SalaryCalculatorModified());
+                    employeeDetailsModified.HourlyRate = 50;
+                    employeeDetailsModified.HoursWorked = 150;
+                    Console.WriteLine($"The Total Pay is {employeeDetailsModified.GetSalary()}");
                     break;
             }
 
