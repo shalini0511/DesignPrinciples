@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DesignPrinciples.DesignPrinciple.Interface_Segregation_Principle;
 using DesignPrinciples.DesignPrinciple.Liskov_Substitution_Principle;
 using DesignPrinciples.DesignPrinciple.Open_Closed_Principle;
 using DesignPrinciples.DesignPrinciple.Single_Responsibilty_Principle;
@@ -15,6 +16,7 @@ namespace DesignPrinciples
             Console.WriteLine("1.Single Responsibilty Principle");
             Console.WriteLine("2.Open Closed Principle");
             Console.WriteLine("3.Liskov Substitution Principle");
+            Console.WriteLine("4.Interface segregation principle");
             Console.WriteLine("Enter the option");
             int num = Convert.ToInt32(Console.ReadLine());
             switch (num)
@@ -53,6 +55,18 @@ namespace DesignPrinciples
                     //Creting a instance for regulardatafile class using interface
                     IFileReader fileReaderR = new RegulaDataFile();
                     fileReaderR.ReadFile(@"C:\Users\HP\source\repos\DesignPrinciples\RegularData.txt");
+                    break;
+                case 4:
+                    Console.WriteLine("*******HPLaser*******");
+                    IPrintContent content = new HPLaserJet();
+                    content.PrintContent();
+                    IPrintDuplex printDuplex = new HPLaserJet();
+                    printDuplex.PrintDuplexContent();
+                    Console.WriteLine("*******Cannon*******");
+                    IPrintContent content1 = new Cannon();
+                    content1.PrintContent();
+                    IPhotoCopyContent copyContent = new Cannon();
+                    copyContent.PhotoCopyContent();
                     break;
             }
 
